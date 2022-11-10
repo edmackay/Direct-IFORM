@@ -1,7 +1,7 @@
 clear
 
 % addpath for contour functions
-addpath('Contour code')
+addpath('contour code')
 
 % load data
 data=load('Data_Celtic_Sea','Hs','Tm','dir_rel','U10');
