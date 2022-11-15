@@ -47,6 +47,7 @@ OUTPUTS.CONTOUR = cell(NRP,1);
 
 % Peaks-over-threshold analysis for each direction
 disp('Conducting POT analysis for:')
+opts=optimset('display','off');
 for i=1:Ndir
     disp(['   Direction ' num2str(i) '/' num2str(Ndir)])
     
@@ -66,7 +67,7 @@ for i=1:Ndir
     Z = Z(Z>0);
     
     % fit generalised Pareto distribution to threshold exceedances
-    [sigma, xi]=gp_fit(Z,-1,0);
+    [sigma, xi]=gp_fit(Z,-1,0,opts);
     
     % calculate return values
     lambda = length(Z)/Nyears;

@@ -1,4 +1,4 @@
-function [sigma, xi]=gp_fit(z,min_xi,max_xi)
+function [sigma, xi]=gp_fit(z,min_xi,max_xi,opts)
 
 N=length(z);
 zmax=max(z);
@@ -19,7 +19,6 @@ end
 p0=[xi0, sigma0];
 
 % maximise likelihood starting from first guess
-opts=optimset('display','off');
 params=fminsearch(@(p)GP_negloglike(p,z),p0,opts);
 xi=params(1);
 sigma=params(2);
