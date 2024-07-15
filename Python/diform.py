@@ -606,7 +606,7 @@ def direction_vector( ndim, npoints, mirror = "add_negative" ) :
     res.reset_index(inplace = True, drop = True)
             
     # Normalize
-    res.values[:,:] /= ((res**2).sum(axis = 1)**0.5).values[:,None]
+    res = res.div( ((res**2).sum(axis = 1)**0.5), axis = 0 )
     
     return res
 
